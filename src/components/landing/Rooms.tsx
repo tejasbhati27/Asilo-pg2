@@ -38,40 +38,40 @@ const roomTypes = [
 
 export default function Rooms() {
   return (
-    <section id="rooms" className="py-20 sm:py-28 bg-gray-50">
+    <section id="rooms" className="py-16 sm:py-24 bg-gray-50">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="font-headline text-4xl font-bold text-center sm:text-5xl text-gray-800">
+        <h2 className="font-headline text-3xl font-bold text-center sm:text-4xl text-gray-800">
           Find Your Perfect Space
         </h2>
-        <p className="mt-6 text-center text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="mt-4 text-center text-lg text-gray-600 max-w-2xl mx-auto">
           We offer a variety of room types to suit your needs and budget. Each room is designed for comfort and equipped with modern furnishings.
         </p>
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {roomTypes.map((room) => (
-            <Card key={room.type} className="overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 rounded-lg flex flex-col bg-white">
+            <Card key={room.type} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg flex flex-col bg-white">
               <CardHeader className="p-0">
                 <Image
                   src={room.image.src}
                   alt={`A ${room.type} room at Asilo Girls PG`}
                   width={600}
                   height={400}
-                  className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-56 object-cover transition-transform duration-500 hover:scale-105"
                   data-ai-hint={room.image.hint}
                   unoptimized
                 />
               </CardHeader>
               <CardContent className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start">
-                  <CardTitle className="font-headline text-2xl text-gray-800">{room.type}</CardTitle>
+                  <CardTitle className="font-headline text-xl text-gray-800">{room.type}</CardTitle>
                   <Badge 
                     className={`whitespace-nowrap ${room.availability === 'available' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}
                   >
                     {room.availability === 'available' ? 'Available' : 'Limited Seats'}
                   </Badge>
                 </div>
-                <p className="mt-3 text-gray-600 flex-grow">{room.description}</p>
-                <div className="mt-6">
-                  <h4 className="font-semibold mb-3 text-gray-700">Included Furnishings:</h4>
+                <p className="mt-2 text-gray-600 flex-grow">{room.description}</p>
+                <div className="mt-4">
+                  <h4 className="font-semibold mb-2 text-gray-700">Included Furnishings:</h4>
                   <div className="flex flex-wrap gap-2">
                     {room.furnishings.map((item) => (
                       <Badge key={item} variant="outline" className="text-gray-600 border-gray-300">{item}</Badge>

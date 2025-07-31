@@ -46,18 +46,18 @@ export default function Testimonials() {
               align: "start",
               loop: true,
             }}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2">
+                <CarouselItem key={index} className="pl-4 basis-4/5 md:basis-1/2 lg:basis-1/3">
                   <div className="p-4">
-                    <Card className="h-full shadow-lg rounded-xl">
-                      <CardContent className="p-8 flex flex-col justify-between h-full">
+                    <Card className="h-full shadow-lg rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                      <CardContent className="p-6 sm:p-8 flex flex-col justify-between h-full">
                         <div className="flex mb-4">
                             {renderStars(testimonial.rating)}
                         </div>
-                        <blockquote className="text-lg italic text-gray-700 flex-grow">
+                        <blockquote className="text-base sm:text-lg italic text-gray-700 flex-grow">
                           “{testimonial.quote}”
                         </blockquote>
                         <div className="mt-6 flex items-center">
@@ -66,8 +66,8 @@ export default function Testimonials() {
                             <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                           </Avatar>
                           <div className="ml-4">
-                            <p className="font-semibold text-base">{testimonial.name}</p>
-                            <p className="text-sm text-muted-foreground">{testimonial.college}</p>
+                            <p className="font-semibold text-sm sm:text-base">{testimonial.name}</p>
+                            <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.college}</p>
                           </div>
                         </div>
                       </CardContent>

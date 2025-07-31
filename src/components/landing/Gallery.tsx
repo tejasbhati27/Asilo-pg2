@@ -29,8 +29,7 @@ export default function Gallery() {
                 height={400}
                 className="w-full h-full object-cover aspect-video"
                 data-ai-hint={image.hint}
-                {...(image.src.startsWith("/") ? { unoptimized: true } : {})}
-              />
+                unoptimized
               />
             </div>
           ))}

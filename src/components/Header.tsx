@@ -16,17 +16,34 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setHasScrolled(currentScrollY > 20);
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
+
+  const headerClasses = `
+    sticky top-0 z-50 w-full transition-all duration-300
+    ${hasScrolled ? 'border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 shadow-lg' : 'bg-transparent'}
+    ${isVisible ? 'translate-y-0' : '-translate-y-full'}
+  `;
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${hasScrolled ? 'border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-md' : 'bg-transparent'}`}>
+    <header className={headerClasses}>
       <div className="container flex h-20 max-w-7xl items-center justify-between">
         <a href="#home" className="flex items-center gap-2 transition-transform hover:scale-105">
           <Building2 className="h-8 w-8 text-blue-600" />

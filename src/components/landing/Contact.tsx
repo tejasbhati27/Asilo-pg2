@@ -54,76 +54,76 @@ export default function Contact() {
   }, [state, toast]);
   
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-white">
+    <section id="contact" className="py-16 sm:py-24 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="font-headline text-4xl font-bold text-gray-800 sm:text-5xl">
+        <div className="text-center mb-12">
+          <h2 className="font-headline text-3xl font-bold text-gray-800 sm:text-4xl">
             Get in Touch
           </h2>
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Have questions, want to schedule a visit, or just say hello? We'd love to hear from you.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <Card className="shadow-2xl rounded-lg border-none bg-gray-50/70">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+          <Card className="shadow-xl rounded-lg border-none bg-gray-50/70">
             <CardHeader>
-              <CardTitle className="font-headline text-3xl text-gray-800">Send us a Message</CardTitle>
+              <CardTitle className="font-headline text-2xl text-gray-800">Send us a Message</CardTitle>
               <CardDescription className="text-gray-600">Fill out the form and we'll get back to you shortly.</CardDescription>
             </CardHeader>
             <form ref={formRef} action={formAction}>
-              <CardContent className="space-y-6">
-                <div className="space-y-2">
+              <CardContent className="space-y-4">
+                <div className="space-y-1.5">
                   <Label htmlFor="name" className="text-gray-700 font-semibold">Full Name</Label>
-                  <Input id="name" name="name" placeholder="e.g. Akansha Jha" required className="py-6"/>
+                  <Input id="name" name="name" placeholder="e.g. Akansha Jha" required className="py-5"/>
                   {state.type === 'error' && state.errors?.name && <p className="text-sm text-red-500">{state.errors.name[0]}</p>}
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="email" className="text-gray-700 font-semibold">Email Address</Label>
-                  <Input id="email" name="email" type="email" placeholder="e.g. akanshajha@gmail.com" required className="py-6"/>
+                  <Input id="email" name="email" type="email" placeholder="e.g. akanshajha@gmail.com" required className="py-5"/>
                   {state.type === 'error' && state.errors?.email && <p className="text-sm text-red-500">{state.errors.email[0]}</p>}
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="phone" className="text-gray-700 font-semibold">Phone Number</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="e.g. +91 12345 67890" required className="py-6"/>
+                  <Input id="phone" name="phone" type="tel" placeholder="e.g. +91 12345 67890" required className="py-5"/>
                    {state.type === 'error' && state.errors?.phone && <p className="text-sm text-red-500">{state.errors.phone[0]}</p>}
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="message" className="text-gray-700 font-semibold">Message</Label>
-                  <Textarea id="message" name="message" placeholder="Your message, inquiry, or question..." required rows={5}/>
+                  <Textarea id="message" name="message" placeholder="Your message, inquiry, or question..." required rows={4}/>
                   {state.type === 'error' && state.errors?.message && <p className="text-sm text-red-500">{state.errors.message[0]}</p>}
                 </div>
                 <SubmitButton />
               </CardContent>
             </form>
           </Card>
-          <div className="space-y-8">
+          <div id="contact-info" className="space-y-6">
             <div>
-              <h3 className="font-headline text-3xl font-semibold text-gray-800 mb-4">Our Information</h3>
-              <p className="text-lg text-gray-600">You can also reach us through the following channels:</p>
+              <h3 className="font-headline text-2xl font-semibold text-gray-800 mb-3">Our Information</h3>
+              <p className="text-base text-gray-600">You can also reach us through the following channels:</p>
             </div>
-            <div className="space-y-6 text-lg">
-                <a href="tel:+918766360226" className="flex items-center gap-4 group transition-all duration-300 transform hover:translate-x-2">
-                    <Phone className="w-8 h-8 text-blue-600" />
+            <div className="space-y-4 text-base">
+                <a href="tel:+918766360226" className="flex items-center gap-3 group transition-all duration-300">
+                    <Phone className="w-6 h-6 text-blue-600" />
                     <span className="text-gray-700 group-hover:text-blue-600 font-medium">+91 87663 60226</span>
                 </a>
-                 <a href="tel:+919717512704" className="flex items-center gap-4 group transition-all duration-300 transform hover:translate-x-2">
-                    <Phone className="w-8 h-8 text-blue-600" />
+                 <a href="tel:+919717512704" className="flex items-center gap-3 group transition-all duration-300">
+                    <Phone className="w-6 h-6 text-blue-600" />
                     <span className="text-gray-700 group-hover:text-blue-600 font-medium">+91 97175 12704</span>
                 </a>
-                <a href="mailto:asilohostel@gmail.com" className="flex items-center gap-4 group transition-all duration-300 transform hover:translate-x-2">
-                    <Mail className="w-8 h-8 text-blue-600" />
+                <a href="mailto:asilohostel@gmail.com" className="flex items-center gap-3 group transition-all duration-300">
+                    <Mail className="w-6 h-6 text-blue-600" />
                     <span className="text-gray-700 group-hover:text-blue-600 font-medium">asilohostel@gmail.com</span>
                 </a>
-                <a href="https://maps.app.goo.gl/Q5J4Z7n3Zz9Y9Y7n9" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group transition-all duration-300 transform hover:translate-x-2">
-                    <MapPin className="w-8 h-8 text-blue-600 mt-1 flex-shrink-0" />
+                <a href="https://maps.app.goo.gl/Q5J4Z7n3Zz9Y9Y7n9" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 group transition-all duration-300">
+                    <MapPin className="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" />
                     <p className="text-gray-700 group-hover:text-blue-600 font-medium">
                         Asilo Girls PG, Beta 1, Greater Noida, Uttar Pradesh
                     </p>
                 </a>
             </div>
-             <div className="mt-10 p-6 bg-gray-100 rounded-lg">
-                <h4 className="font-headline text-2xl font-semibold text-gray-800 mb-4">Let's Connect</h4>
-                <p className="text-gray-600 mb-6">
+             <div className="mt-8 p-6 bg-gray-100 rounded-lg">
+                <h4 className="font-headline text-xl font-semibold text-gray-800 mb-3">Let's Connect</h4>
+                <p className="text-gray-600 mb-4">
                   We're active on social media. Follow us for the latest updates and a glimpse into life at Asilo.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
