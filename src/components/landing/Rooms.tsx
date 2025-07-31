@@ -19,7 +19,7 @@ const roomTypes = [
     furnishings: ["2 Beds & Mattresses", "2 Wardrobes", "2 Study Tables & Chairs", "Air Conditioning"],
     image: {
       src: "https://placehold.co/600x400.png",
-      hint: "student room shared"
+      hint: "modern dorm room"
     },
     availability: "available",
   },
