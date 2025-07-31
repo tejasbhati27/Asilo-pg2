@@ -73,7 +73,7 @@ export default function Contact() {
               <CardContent className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-gray-700 font-semibold">Full Name</Label>
-                  <Input id="name" name="name" placeholder="e.g. Jane Doe" required className="py-6"/>
+                  <Input id="name" name="name" placeholder="e.g. Akansha Jha" required className="py-6"/>
                   {state.type === 'error' && state.errors?.name && <p className="text-sm text-red-500">{state.errors.name[0]}</p>}
                 </div>
                 <div className="space-y-2">
