@@ -1,11 +1,11 @@
 import { MapPin } from 'lucide-react';
 
 const nearbyPlaces = [
-    { name: 'IIMT College of Engineering', distance: '5 min drive' },
-    { name: 'Galgotias University', distance: '10 min drive' },
-    { name: 'Knowledge Park II Metro Station', distance: '7 min drive' },
+    { name: 'Beta 1 Metro Station', distance: '5 min drive' },
+    { name: 'Grand Venice Mall', distance: '10 min drive' },
+    { name: 'Pari Chowk', distance: '7 min drive' },
     { name: 'Local Market & ATMs', distance: 'Walking distance' },
-    { name: 'Yatharth Super Speciality Hospital', distance: '10 min drive' },
+    { name: 'Kailash Hospital', distance: '10 min drive' },
 ]
 
 export default function Location() {
@@ -23,7 +23,7 @@ export default function Location() {
                 <div>
                     <h3 className="font-semibold text-lg">Our Address</h3>
                     <p className="text-muted-foreground">
-                        Asilo Girls PG, Knowledge Park III, Greater Noida, Uttar Pradesh 201308
+                        Asilo Girls PG, Beta 1, Greater Noida, Uttar Pradesh 201310
                     </p>
                 </div>
               </div>
@@ -40,16 +40,18 @@ export default function Location() {
             </div>
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg h-96">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.73295435948!2d77.50359197549603!3d28.487192975739814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ceb5e6bcd9b89%3A0x9caf31c42bc35918!2sAsilo%20Girls%20PG!5e0!3m2!1sen!2sin!4v1683893456789!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Asilo Girls PG Location"
-            ></iframe>
+            <a href="https://www.google.com/maps/search/?api=1&query=Beta+1+Greater+Noida" target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14028.324269415486!2d77.4587343!3d28.4776104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce9c155555555%3A0x1c36b8a27264879!2sBeta%20I%2C%20Greater%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1722421301018!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Asilo Girls PG Location in Beta 1, Greater Noida"
+                ></iframe>
+            </a>
           </div>
         </div>
       </div>
