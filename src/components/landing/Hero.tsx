@@ -26,7 +26,7 @@ export default function Hero() {
             Discover a safe, comfortable, and welcoming environment designed for female students to thrive. Asilo Girls PG is more than just a place to stay—it's a community.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild className="bg-primary hover:bg-accent text-white font-bold">
+            <Button size="lg" asChild className="bg-primary hover:bg-accent text-primary-foreground font-bold">
               <a href="#contact">
                 Book a Visit
                 <MoveRight className="ml-2 -mr-1 h-5 w-5" />
@@ -38,7 +38,7 @@ export default function Hero() {
                 Connect
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-white border-white hover:bg-white/20">
+            <Button size="lg" variant="outline" asChild className="text-white border-white hover:bg-white/20 hover:text-white">
               <a href="#location">
                 <MapPin className="mr-2 h-5 w-5" />
                 View on Map
