@@ -10,7 +10,8 @@ const roomTypes = [
     image: {
       src: "https://placehold.co/600x400.png",
       hint: "student room private"
-    }
+    },
+    availability: "available",
   },
   {
     type: "Double Occupancy",
@@ -19,7 +20,8 @@ const roomTypes = [
     image: {
       src: "https://placehold.co/600x400.png",
       hint: "student room shared"
-    }
+    },
+    availability: "available",
   },
   {
     type: "Triple Occupancy",
@@ -28,7 +30,8 @@ const roomTypes = [
      image: {
       src: "https://placehold.co/600x400.png",
       hint: "student room group"
-    }
+    },
+    availability: "booked",
   },
 ];
 
@@ -44,7 +47,7 @@ export default function Rooms() {
         </p>
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {roomTypes.map((room) => (
-            <Card key={room.type} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={room.type} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
               <CardHeader className="p-0">
                 <Image
                   src={room.image.src}
@@ -55,9 +58,14 @@ export default function Rooms() {
                   data-ai-hint={room.image.hint}
                 />
               </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="font-headline text-2xl">{room.type}</CardTitle>
-                <p className="mt-2 text-muted-foreground">{room.description}</p>
+              <CardContent className="p-6 flex flex-col flex-grow">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="font-headline text-2xl">{room.type}</CardTitle>
+                  {room.availability === 'booked' && (
+                    <Badge variant="destructive" className="whitespace-nowrap">Fully Booked</Badge>
+                  )}
+                </div>
+                <p className="mt-2 text-muted-foreground flex-grow">{room.description}</p>
                 <div className="mt-4">
                   <h4 className="font-semibold mb-2">Included Furnishings:</h4>
                   <div className="flex flex-wrap gap-2">
