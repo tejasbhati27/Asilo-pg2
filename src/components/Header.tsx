@@ -8,7 +8,7 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const navLinks = [
   { href: '#amenities', label: 'Amenities', icon: Star },
-  { href: '#rooms', label: 'Rooms', icon: BedDouble },
+  { href: '#occupancy', label: 'Rooms', icon: BedDouble },
   { href: '#gallery', label: 'Gallery', icon: ImageIcon },
   { href: '#location', label: 'Location', icon: Map },
   { href: '#contact', label: 'Contact', icon: MessageCircle },

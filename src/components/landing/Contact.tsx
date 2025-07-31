@@ -1,9 +1,11 @@
 "use client";
 
 import { Mail, Phone, MapPin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
   const googleMapsUrl = "https://www.google.com/maps/place/Asilo+Girls+PG/@28.4784904,77.5058117,19z/data=!4m15!1m8!3m7!1s0x390cea6513624ebd:0xc472b07f2822a6df!2sBeta+I,+Greater+Noida,+Uttar+Pradesh!3b1!8m2!3d28.4797984!4d77.5060438!16s%2Fg%2F1tdd_qy6!3m5!1s0x390ceb5e6bcd9b89:0x9caf31c42bc35918!8m2!3d28.4781292!4d77.5061669!16s%2Fg%2F11xrfzs4zf?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOC4wIKXMDSoASAFQAw%3D%3D";
+  const whatsappUrl = "https://wa.me/918766360226";
 
   return (
     <section id="contact" className="py-16 bg-white">
@@ -35,6 +37,17 @@ export default function Contact() {
                 </a>
             </div>
           </div>
+        </div>
+        <div className="mt-8">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="block p-6 rounded-lg bg-green-500 text-white shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105">
+                <div className="flex items-center">
+                    <FaWhatsapp className="w-10 h-10 mr-4" />
+                    <div>
+                        <h4 className="font-bold text-xl">Connect on WhatsApp</h4>
+                        <p className="text-sm">Click to chat with us directly!</p>
+                    </div>
+                </div>
+            </a>
         </div>
       </div>
     </section>

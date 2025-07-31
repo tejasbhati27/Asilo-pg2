@@ -93,8 +93,8 @@ export default function Occupancy() {
                                 <li key={i}>{amenity}</li>
                             ))}
                         </ul>
-                        <Button className="w-full bg-accent hover:bg-accent/90 mt-auto">
-                          Book Now
+                        <Button asChild className="w-full bg-accent hover:bg-accent/90 mt-auto">
+                          <a href="#contact-info">Book Now</a>
                         </Button>
                       </div>
                     </CardContent>
