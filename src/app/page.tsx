@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/landing/Hero';
 import Amenities from '@/components/landing/Amenities';
-import About from '@/components/landing/About';
 import Rooms from '@/components/landing/Rooms';
 import Gallery from '@/components/landing/Gallery';
 import Location from '@/components/landing/Location';
@@ -17,7 +16,6 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Amenities />
-        <About />
         <Rooms />
         <Gallery />
         <Testimonials />
