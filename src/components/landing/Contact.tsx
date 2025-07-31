@@ -78,7 +78,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-gray-700 font-semibold">Email Address</Label>
-                  <Input id="email" name="email" type="email" placeholder="e.g. jane.doe@example.com" required className="py-6"/>
+                  <Input id="email" name="email" type="email" placeholder="e.g. akanshajha@gmail.com" required className="py-6"/>
                   {state.type === 'error' && state.errors?.email && <p className="text-sm text-red-500">{state.errors.email[0]}</p>}
                 </div>
                 <div className="space-y-2">
