@@ -11,34 +11,33 @@ export default function Hero() {
         fill
         className="object-cover"
         priority
-        unoptimized
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20" />
       <div className="relative z-10 flex flex-col items-center text-center px-4">
         <div className="max-w-4xl">
-          <h1 className="font-headline text-6xl font-bold tracking-tight text-white sm:text-7xl md:text-8xl lg:text-9xl">
+          <h1 className="font-headline text-5xl font-bold tracking-tight text-white">
             Asilo
           </h1>
-          <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mt-2">
+          <h2 className="font-headline text-2xl font-extrabold tracking-tight mt-2">
             Your Stylish Sanctuary in Greater Noida
           </h2>
-          <p className="mt-4 text-base text-gray-200 md:text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-sm font-body text-gray-200 max-w-2xl mx-auto">
             Experience the perfect blend of comfort, community, and convenience. Asilo is more than a PG—it's your home away from home, designed for the modern student.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" asChild className="w-64 sm:w-auto bg-white text-gray-900 font-bold shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4">
+            <Button size="lg" asChild className="w-64 bg-white text-gray-900 font-bold shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
               <a href="#rooms">
                 Explore Rooms
                 <MoveRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="w-64 sm:w-auto text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
+            <Button size="lg" variant="outline" asChild className="w-64 text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
               <a href="#location">
                 <MapPin className="mr-2 h-5 w-5" />
                 View on Map
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="w-64 sm:w-auto text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
+            <Button size="lg" variant="outline" asChild className="w-64 text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
               <a href="#contact-info">
                 <Phone className="mr-2 h-5 w-5" />
                 Contact Us

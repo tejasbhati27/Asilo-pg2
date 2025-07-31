@@ -27,11 +27,11 @@ export default function Header() {
       const currentScrollY = window.scrollY;
       setHasScrolled(currentScrollY > 20);
 
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY && currentScrollY > window.innerHeight) {
         if (isVisible) {
           timeoutId = setTimeout(() => {
             setIsVisible(false);
-          }, 200);
+          }, 400);
         }
       } else {
         clearTimeout(timeoutId);
@@ -57,21 +57,21 @@ export default function Header() {
     <header className={headerClasses}>
       <div className="container flex h-20 max-w-7xl items-center justify-between">
         <a href="#home" className="flex items-center gap-2 transition-transform hover:scale-105">
-          <Building2 className="h-8 w-8 text-blue-600" />
+          <Building2 className="h-8 w-8 text-primary" />
           <span className="font-headline text-2xl font-bold text-gray-800">Asilo</span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 text-md font-medium text-gray-700">
+        <nav className="hidden">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="relative py-2 transition-colors hover:text-blue-600 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-blue-600 after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100">
+            <a key={link.href} href={link.href} className="relative py-2 transition-colors hover:text-primary after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-primary after:scale-x-0 after:origin-left after:transition-transform hover:after:scale-x-100">
               {link.label}
             </a>
           ))}
         </nav>
         
-        <div className="hidden md:flex items-center gap-2">
-            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700 rounded-full shadow-lg transition-transform hover:scale-105">
-              <a href="#contact">
+        <div className="hidden">
+            <Button asChild className="bg-accent text-white hover:bg-accent/90 rounded-full shadow-lg transition-transform hover:scale-105">
+              <a href="#contact-info">
                 <Phone className="mr-2 h-5 w-5" />
                 Book Now
               </a>
@@ -80,12 +80,12 @@ export default function Header() {
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden">
+            <Button variant="ghost" size="icon">
               <Menu className="h-7 w-7" />
               <span className="sr-only">Open Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full max-w-sm bg-white">
+          <SheetContent side="right" className="w-full max-w-sm bg-background">
             <SheetHeader>
                 <VisuallyHidden>
                     <SheetTitle>Mobile Menu</SheetTitle>
@@ -95,15 +95,11 @@ export default function Header() {
                 </VisuallyHidden>
             </SheetHeader>
             <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between border-b pb-6">
+              <div className="flex items-center border-b pb-6">
                   <a href="#home" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                    <Building2 className="h-8 w-8 text-blue-600" />
+                    <Building2 className="h-8 w-8 text-primary" />
                     <span className="font-headline text-2xl font-bold">Asilo</span>
                   </a>
-                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                      <X className="h-7 w-7" />
-                      <span className="sr-only">Close Menu</span>
-                  </Button>
               </div>
               <nav className="flex-1 mt-8">
                 <ul className="space-y-2">
@@ -111,7 +107,7 @@ export default function Header() {
                     <li key={link.href}>
                       <a
                         href={link.href}
-                        className="flex items-center gap-4 text-xl font-medium p-4 rounded-lg transition-colors hover:bg-gray-100 hover:text-blue-600"
+                        className="flex items-center gap-4 text-xl font-medium p-4 rounded-lg transition-colors hover:bg-gray-100 hover:text-primary"
                         onClick={() => setIsOpen(false)}
                       >
                         <link.icon className="h-6 w-6" />
@@ -122,8 +118,8 @@ export default function Header() {
                 </ul>
               </nav>
               <div className="mt-auto border-t pt-6">
-                <Button size="lg" asChild className="w-full bg-blue-600 text-white hover:bg-blue-700 rounded-lg shadow-lg">
-                  <a href="#contact" onClick={() => setIsOpen(false)}>
+                <Button size="lg" asChild className="w-full bg-accent text-white hover:bg-accent/90 rounded-lg shadow-lg">
+                  <a href="#contact-info" onClick={() => setIsOpen(false)}>
                     <Phone className="mr-2 h-5 w-5" />
                     Book a Visit
                   </a>

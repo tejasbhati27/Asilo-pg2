@@ -38,27 +38,28 @@ const roomTypes = [
 
 export default function Rooms() {
   return (
-    <section id="rooms" className="py-16 sm:py-24 bg-gray-50">
+    <section id="rooms" className="py-16 bg-background">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="font-headline text-3xl font-bold text-center sm:text-4xl text-gray-800">
+        <h2 className="font-headline text-3xl font-bold text-center text-gray-800">
           Find Your Perfect Space
         </h2>
-        <p className="mt-4 text-center text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-4 text-center text-lg font-body text-gray-600 max-w-2xl mx-auto">
           We offer a variety of room types to suit your needs and budget. Each room is designed for comfort and equipped with modern furnishings.
         </p>
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-12 grid gap-8">
           {roomTypes.map((room) => (
             <Card key={room.type} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg flex flex-col bg-white">
               <CardHeader className="p-0">
-                <Image
-                  src={room.image.src}
-                  alt={`A ${room.type} room at Asilo Girls PG`}
-                  width={600}
-                  height={400}
-                  className="w-full h-56 object-cover transition-transform duration-500 hover:scale-105"
-                  data-ai-hint={room.image.hint}
-                  unoptimized
-                />
+                <div className="overflow-hidden">
+                  <Image
+                    src={room.image.src}
+                    alt={`A ${room.type} room at Asilo Girls PG`}
+                    width={600}
+                    height={400}
+                    className="w-full h-56 object-cover transition-transform duration-500 hover:scale-105"
+                    data-ai-hint={room.image.hint}
+                  />
+                </div>
               </CardHeader>
               <CardContent className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start">
@@ -69,17 +70,17 @@ export default function Rooms() {
                     {room.availability === 'available' ? 'Available' : 'Limited Seats'}
                   </Badge>
                 </div>
-                <p className="mt-2 text-gray-600 flex-grow">{room.description}</p>
+                <p className="mt-2 text-gray-600 font-body flex-grow">{room.description}</p>
                 <div className="mt-4">
-                  <h4 className="font-semibold mb-2 text-gray-700">Included Furnishings:</h4>
+                  <h4 className="font-semibold mb-2 text-gray-700 font-body">Included Furnishings:</h4>
                   <div className="flex flex-wrap gap-2">
                     {room.furnishings.map((item) => (
                       <Badge key={item} variant="outline" className="text-gray-600 border-gray-300">{item}</Badge>
                     ))}
                   </div>
                 </div>
-                <Button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition-all duration-300">
-                  Book Now
+                <Button asChild className="mt-6 w-full bg-accent hover:bg-accent/90 text-white font-bold py-3 rounded-md transition-all duration-300">
+                  <a href="#contact-info">Book Now</a>
                 </Button>
               </CardContent>
             </Card>

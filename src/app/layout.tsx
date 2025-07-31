@@ -1,11 +1,27 @@
-import type {Metadata} from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import { Playfair_Display, PT_Sans } from "next/font/google";
+import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import WhatsAppConnect from '@/components/WhatsAppConnect';
+import WhatsAppConnect from "@/components/WhatsAppConnect";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair-display",
+});
+
+const ptSans = PT_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: "--font-pt-sans",
+});
 
 export const metadata: Metadata = {
-  title: 'Asilo Student Living',
-  description: 'Your Home Away From Home in Greater Noida',
+  title: "Asilo: Your Home Away From Home",
+  description: "Asilo is a premium student living space in Greater Noida, offering a perfect blend of comfort, community, and convenience. Designed for the modern student, it's more than a PG—it's your stylish sanctuary.",
 };
 
 export default function RootLayout({
@@ -15,13 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth overflow-x-hidden">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased bg-background overflow-x-hidden">
-        {children}
+      <body className={`font-body bg-background text-foreground ${playfairDisplay.variable} ${ptSans.variable}`}>
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
         <Toaster />
         <WhatsAppConnect />
       </body>

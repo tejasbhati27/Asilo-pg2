@@ -11,15 +11,15 @@ const galleryImages = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-16 sm:py-24 bg-background">
+    <section id="gallery" className="py-16 bg-background">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="font-headline text-3xl font-bold text-center sm:text-4xl">
+        <h2 className="font-headline text-3xl font-bold text-center">
           A Glimpse Inside Asilo
         </h2>
-        <p className="mt-4 text-center text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-4 text-center text-lg font-body text-muted-foreground max-w-2xl mx-auto">
           Explore our facilities and see for yourself why Asilo is the perfect place to call home.
         </p>
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-2 gap-4">
           {galleryImages.map((image, index) => (
             <div key={index} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
               <Image
@@ -27,9 +27,8 @@ export default function Gallery() {
                 alt={image.alt}
                 width={600}
                 height={400}
-                className="w-full h-full object-cover aspect-video"
+                className="w-full h-full object-cover aspect-video transition-transform duration-500 hover:scale-105"
                 data-ai-hint={image.hint}
-                unoptimized
               />
             </div>
           ))}
