@@ -9,7 +9,7 @@ const roomTypes = [
     description: "Experience luxury and privacy in our premium single rooms. These rooms are more spacious and offer upgraded amenities.",
     furnishings: ["King Size Bed & Mattress", "Large Wardrobe", "Ergonomic Study Table & Chair", "Silent Air Conditioning", "Mini Fridge"],
     image: {
-      src: "/premium-single.jpg",
+      src: "/premium-single.jpeg",
       hint: "luxury student room"
     },
     availability: "available",
@@ -19,7 +19,7 @@ const roomTypes = [
     description: "Enjoy complete privacy and personal space in our cozy single rooms. Perfect for students who need quiet focus.",
     furnishings: ["Bed & Mattress", "Wardrobe", "Study Table & Chair", "Air Conditioning"],
     image: {
-      src: "/single-occupancy.jpg",
+      src: "/single-occupancy.jpeg",
       hint: "student room private"
     },
     availability: "limited",
@@ -29,7 +29,7 @@ const roomTypes = [
     description: "Share a spacious room with a fellow student. A great way to make new friends and collaborate.",
     furnishings: ["2 Beds & Mattresses", "2 Wardrobes", "2 Study Tables & Chairs", "Air Conditioning"],
     image: {
-      src: "/double-occupancy.jpg",
+      src: "/double-occupancy.jpeg",
       hint: "modern dorm room"
     },
     availability: "available",
@@ -57,6 +57,7 @@ export default function Rooms() {
                   height={400}
                   className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
                   data-ai-hint={room.image.hint}
+                  unoptimized
                 />
               </CardHeader>
               <CardContent className="p-6 flex flex-col flex-grow">

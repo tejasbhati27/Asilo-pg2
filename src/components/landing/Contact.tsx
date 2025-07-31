@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { useEffect, useRef } from "react";
 import { handleContactInquiry } from "@/app/actions";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,7 @@ function SubmitButton() {
 }
 
 export default function Contact() {
-  const [state, formAction] = useFormState(handleContactInquiry, { type: 'initial', message: '' });
+  const [state, formAction] = useActionState(handleContactInquiry, { type: 'initial', message: '' });
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
