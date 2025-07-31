@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section id="home" className="relative h-[90vh] w-full">
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="https://lh5.googleusercontent.com/p/AF1QipN9s-Bx-x1L6G9Y_4Q2E_jDFg_rI8-M2J_i_k-Z=w1080-h607-p-k-no"
         alt="Exterior of Asilo Girls PG"
         layout="fill"
         objectFit="cover"
