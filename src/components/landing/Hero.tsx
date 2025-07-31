@@ -7,9 +7,8 @@ export default function Hero() {
       <Image
         src="https://lh5.googleusercontent.com/p/AF1QipN9s-Bx-x1L6G9Y_4Q2E_jDFg_rI8-M2J_i_k-Z=w1080-h607-p-k-no"
         alt="Exterior of Asilo Girls PG"
-        layout="fill"
-        objectFit="cover"
-        className="brightness-50"
+        fill
+        className="object-cover brightness-50"
         data-ai-hint="student housing exterior"
         priority
       />
