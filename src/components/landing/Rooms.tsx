@@ -1,79 +1,85 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const roomTypes = [
+  {
+    type: "Premium Single",
+    description: "Experience luxury and privacy in our premium single rooms. These rooms are more spacious and offer upgraded amenities.",
+    furnishings: ["King Size Bed & Mattress", "Large Wardrobe", "Ergonomic Study Table & Chair", "Silent Air Conditioning", "Mini Fridge"],
+    image: {
+      src: "https://images.unsplash.com/photo-1594454476363-9db9378413a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      hint: "luxury student room"
+    },
+    availability: "available",
+  },
   {
     type: "Single Occupancy",
     description: "Enjoy complete privacy and personal space in our cozy single rooms. Perfect for students who need quiet focus.",
     furnishings: ["Bed & Mattress", "Wardrobe", "Study Table & Chair", "Air Conditioning"],
     image: {
-      src: "https://placehold.co/600x400.png",
+      src: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       hint: "student room private"
     },
-    availability: "available",
+    availability: "limited",
   },
   {
     type: "Double Occupancy",
     description: "Share a spacious room with a fellow student. A great way to make new friends and collaborate.",
     furnishings: ["2 Beds & Mattresses", "2 Wardrobes", "2 Study Tables & Chairs", "Air Conditioning"],
     image: {
-      src: "https://placehold.co/600x400.png",
+      src: "/double-occupancy.jpg",
       hint: "modern dorm room"
     },
     availability: "available",
-  },
-  {
-    type: "Triple Occupancy",
-    description: "Our most budget-friendly option, perfect for those who enjoy a lively and communal atmosphere.",
-    furnishings: ["3 Beds & Mattresses", "3 Wardrobes", "Shared Study Space", "Air Conditioning"],
-     image: {
-      src: "https://placehold.co/600x400.png",
-      hint: "student room group"
-    },
-    availability: "booked",
   },
 ];
 
 export default function Rooms() {
   return (
-    <section id="rooms" className="py-16 sm:py-24 bg-secondary">
+    <section id="rooms" className="py-20 sm:py-28 bg-gray-50">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="font-headline text-3xl font-bold text-center sm:text-4xl">
+        <h2 className="font-headline text-4xl font-bold text-center sm:text-5xl text-gray-800">
           Find Your Perfect Space
         </h2>
-        <p className="mt-4 text-center text-lg text-muted-foreground max-w-2xl mx-auto">
-          We offer a variety of room types to suit your needs and budget. Each room is designed for comfort and equipped with essential furnishings.
+        <p className="mt-6 text-center text-xl text-gray-600 max-w-3xl mx-auto">
+          We offer a variety of room types to suit your needs and budget. Each room is designed for comfort and equipped with modern furnishings.
         </p>
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {roomTypes.map((room) => (
-            <Card key={room.type} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+            <Card key={room.type} className="overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 rounded-lg flex flex-col bg-white">
               <CardHeader className="p-0">
                 <Image
                   src={room.image.src}
                   alt={`A ${room.type} room at Asilo Girls PG`}
                   width={600}
                   height={400}
-                  className="w-full h-56 object-cover"
+                  className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
                   data-ai-hint={room.image.hint}
                 />
               </CardHeader>
               <CardContent className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start">
-                  <CardTitle className="font-headline text-2xl">{room.type}</CardTitle>
-                  {room.availability === 'booked' && (
-                    <Badge variant="destructive" className="whitespace-nowrap">Fully Booked</Badge>
-                  )}
+                  <CardTitle className="font-headline text-2xl text-gray-800">{room.type}</CardTitle>
+                  <Badge 
+                    className={`whitespace-nowrap ${room.availability === 'available' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}
+                  >
+                    {room.availability === 'available' ? 'Available' : 'Limited Seats'}
+                  </Badge>
                 </div>
-                <p className="mt-2 text-muted-foreground flex-grow">{room.description}</p>
-                <div className="mt-4">
-                  <h4 className="font-semibold mb-2">Included Furnishings:</h4>
+                <p className="mt-3 text-gray-600 flex-grow">{room.description}</p>
+                <div className="mt-6">
+                  <h4 className="font-semibold mb-3 text-gray-700">Included Furnishings:</h4>
                   <div className="flex flex-wrap gap-2">
                     {room.furnishings.map((item) => (
-                      <Badge key={item} variant="outline">{item}</Badge>
+                      <Badge key={item} variant="outline" className="text-gray-600 border-gray-300">{item}</Badge>
                     ))}
                   </div>
                 </div>
+                <Button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition-all duration-300">
+                  Book Now
+                </Button>
               </CardContent>
             </Card>
           ))}

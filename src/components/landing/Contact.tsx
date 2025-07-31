@@ -9,25 +9,29 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
+import { Loader2, Mail, Phone, MapPin, Building, Send, Share2 } from "lucide-react";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="w-full" disabled={pending}>
-      {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-      Send Inquiry
+    <Button type="submit" className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700" disabled={pending}>
+      {pending ? (
+        <>
+          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+          Sending...
+        </>
+      ) : (
+        <>
+          <Send className="mr-2 h-5 w-5" />
+          Send Inquiry
+        </>
+      )}
     </Button>
   );
 }
 
-const WhatsAppIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-)
-
-
 export default function Contact() {
-  const [state, formAction] = useFormState(handleContactInquiry, { type: 'initial' });
+  const [state, formAction] = useFormState(handleContactInquiry, { type: 'initial', message: '' });
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
@@ -36,92 +40,103 @@ export default function Contact() {
       toast({
         title: "Message Sent!",
         description: state.message,
+        className: "bg-green-100 text-green-800 border-green-300"
       });
       formRef.current?.reset();
     } else if (state.type === 'error' && state.message && !state.errors) {
        toast({
         variant: "destructive",
-        title: "Oh no! Something went wrong.",
+        title: "Oops! Something went wrong.",
         description: state.message,
       });
     }
   }, [state, toast]);
   
   return (
-    <section id="contact" className="py-16 sm:py-24 bg-background">
+    <section id="contact" className="py-20 sm:py-28 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="font-headline text-3xl font-bold text-center sm:text-4xl">
-          Get in Touch
-        </h2>
-        <p className="mt-4 text-center text-lg text-muted-foreground max-w-2xl mx-auto">
-          Have questions or want to schedule a visit? We'd love to hear from you.
-        </p>
-        <div className="mt-12 grid md:grid-cols-2 gap-12">
-          <Card className="shadow-lg">
+        <div className="text-center mb-16">
+          <h2 className="font-headline text-4xl font-bold text-gray-800 sm:text-5xl">
+            Get in Touch
+          </h2>
+          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+            Have questions, want to schedule a visit, or just say hello? We'd love to hear from you.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <Card className="shadow-2xl rounded-lg border-none bg-gray-50/70">
             <CardHeader>
-              <CardTitle className="font-headline text-2xl">Send us a Message</CardTitle>
-              <CardDescription>Fill out the form and we'll get back to you shortly.</CardDescription>
+              <CardTitle className="font-headline text-3xl text-gray-800">Send us a Message</CardTitle>
+              <CardDescription className="text-gray-600">Fill out the form and we'll get back to you shortly.</CardDescription>
             </CardHeader>
             <form ref={formRef} action={formAction}>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" name="name" placeholder="Your full name" required/>
-                  {state.type === 'error' && state.errors?.name && <p className="text-sm text-destructive">{state.errors.name[0]}</p>}
+                  <Label htmlFor="name" className="text-gray-700 font-semibold">Full Name</Label>
+                  <Input id="name" name="name" placeholder="e.g. Jane Doe" required className="py-6"/>
+                  {state.type === 'error' && state.errors?.name && <p className="text-sm text-red-500">{state.errors.name[0]}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" name="email" type="email" placeholder="your.email@example.com" required/>
-                  {state.type === 'error' && state.errors?.email && <p className="text-sm text-destructive">{state.errors.email[0]}</p>}
+                  <Label htmlFor="email" className="text-gray-700 font-semibold">Email Address</Label>
+                  <Input id="email" name="email" type="email" placeholder="e.g. jane.doe@example.com" required className="py-6"/>
+                  {state.type === 'error' && state.errors?.email && <p className="text-sm text-red-500">{state.errors.email[0]}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" name="phone" type="tel" placeholder="Your phone number" required/>
-                   {state.type === 'error' && state.errors?.phone && <p className="text-sm text-destructive">{state.errors.phone[0]}</p>}
+                  <Label htmlFor="phone" className="text-gray-700 font-semibold">Phone Number</Label>
+                  <Input id="phone" name="phone" type="tel" placeholder="e.g. +91 12345 67890" required className="py-6"/>
+                   {state.type === 'error' && state.errors?.phone && <p className="text-sm text-red-500">{state.errors.phone[0]}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" name="message" placeholder="Your message or inquiry" required/>
-                  {state.type === 'error' && state.errors?.message && <p className="text-sm text-destructive">{state.errors.message[0]}</p>}
+                  <Label htmlFor="message" className="text-gray-700 font-semibold">Message</Label>
+                  <Textarea id="message" name="message" placeholder="Your message, inquiry, or question..." required rows={5}/>
+                  {state.type === 'error' && state.errors?.message && <p className="text-sm text-red-500">{state.errors.message[0]}</p>}
                 </div>
                 <SubmitButton />
               </CardContent>
             </form>
           </Card>
-          <div className="space-y-6">
-            <h3 className="font-headline text-2xl font-semibold">Contact Information</h3>
-            <div className="space-y-4 text-lg">
-                <div className="flex flex-col gap-2">
-                    <a href="tel:+918766360226" className="flex items-center gap-4 group">
-                        <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">+91 87663 60226</span>
-                    </a>
-                     <a href="tel:+919717512704" className="flex items-center gap-4 group">
-                        <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">+91 97175 12704</span>
-                    </a>
-                </div>
-                <a href="mailto:asilohostel@gmail.com" className="flex items-center gap-4 group">
-                    <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="text-muted-foreground group-hover:text-primary transition-colors">asilohostel@gmail.com</span>
+          <div className="space-y-8">
+            <div>
+              <h3 className="font-headline text-3xl font-semibold text-gray-800 mb-4">Our Information</h3>
+              <p className="text-lg text-gray-600">You can also reach us through the following channels:</p>
+            </div>
+            <div className="space-y-6 text-lg">
+                <a href="tel:+918766360226" className="flex items-center gap-4 group transition-all duration-300 transform hover:translate-x-2">
+                    <Phone className="w-8 h-8 text-blue-600" />
+                    <span className="text-gray-700 group-hover:text-blue-600 font-medium">+91 87663 60226</span>
                 </a>
-                <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                    <p className="text-muted-foreground">
+                 <a href="tel:+919717512704" className="flex items-center gap-4 group transition-all duration-300 transform hover:translate-x-2">
+                    <Phone className="w-8 h-8 text-blue-600" />
+                    <span className="text-gray-700 group-hover:text-blue-600 font-medium">+91 97175 12704</span>
+                </a>
+                <a href="mailto:asilohostel@gmail.com" className="flex items-center gap-4 group transition-all duration-300 transform hover:translate-x-2">
+                    <Mail className="w-8 h-8 text-blue-600" />
+                    <span className="text-gray-700 group-hover:text-blue-600 font-medium">asilohostel@gmail.com</span>
+                </a>
+                <a href="https://maps.app.goo.gl/Q5J4Z7n3Zz9Y9Y7n9" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group transition-all duration-300 transform hover:translate-x-2">
+                    <MapPin className="w-8 h-8 text-blue-600 mt-1 flex-shrink-0" />
+                    <p className="text-gray-700 group-hover:text-blue-600 font-medium">
                         Asilo Girls PG, Beta 1, Greater Noida, Uttar Pradesh
                     </p>
-                </div>
+                </a>
             </div>
-             <div className="flex space-x-4">
-                 <Button variant="outline" size="icon" asChild>
-                    <a href="https://wa.me/918766360226" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><WhatsAppIcon /></a>
-                </Button>
-                <Button variant="outline" size="icon" asChild>
-                    <a href="#" aria-label="Facebook"><Facebook className="h-6 w-6" /></a>
-                </Button>
-                <Button variant="outline" size="icon" asChild>
-                    <a href="#" aria-label="Instagram"><Instagram className="h-6 w-6" /></a>
-                </Button>
+             <div className="mt-10 p-6 bg-gray-100 rounded-lg">
+                <h4 className="font-headline text-2xl font-semibold text-gray-800 mb-4">Let's Connect</h4>
+                <p className="text-gray-600 mb-6">
+                  We're active on social media. Follow us for the latest updates and a glimpse into life at Asilo.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                    <Button asChild className="flex-1 bg-green-500 text-white hover:bg-green-600 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        <a href="https://wa.me/918766360226" target="_blank" rel="noopener noreferrer">
+                            WhatsApp
+                        </a>
+                    </Button>
+                    <Button asChild className="flex-1 bg-pink-500 text-white hover:bg-pink-600 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            Instagram
+                        </a>
+                    </Button>
+                </div>
              </div>
           </div>
         </div>
