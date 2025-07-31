@@ -25,20 +25,20 @@ export default function Hero() {
           <p className="mt-4 text-base text-gray-200 md:text-lg max-w-2xl mx-auto">
             Experience the perfect blend of comfort, community, and convenience. Asilo is more than a PG—it's your home away from home, designed for the modern student.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild className="bg-white text-gray-900 font-bold shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button size="lg" asChild className="w-64 sm:w-auto bg-white text-gray-900 font-bold shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
               <a href="#rooms">
                 Explore Rooms
                 <MoveRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110">
+            <Button size="lg" variant="outline" asChild className="w-64 sm:w-auto text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
               <a href="#location">
                 <MapPin className="mr-2 h-5 w-5" />
                 View on Map
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110">
+            <Button size="lg" variant="outline" asChild className="w-64 sm:w-auto text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110 active:scale-95">
               <a href="#contact-info">
                 <Phone className="mr-2 h-5 w-5" />
                 Contact Us

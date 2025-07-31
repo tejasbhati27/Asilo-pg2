@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Building2, Phone, BedDouble, Star, ImageIcon, Map, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const navLinks = [
   { href: '#amenities', label: 'Amenities', icon: Star },
@@ -85,6 +86,14 @@ export default function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-full max-w-sm bg-white">
+            <SheetHeader>
+                <VisuallyHidden>
+                    <SheetTitle>Mobile Menu</SheetTitle>
+                    <SheetDescription>
+                        A list of navigation links to browse the website.
+                    </SheetDescription>
+                </VisuallyHidden>
+            </SheetHeader>
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between border-b pb-6">
                   <a href="#home" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
