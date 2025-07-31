@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 const nearbyPlaces = [
     { name: 'Beta Plaza', distance: 'In front of' },
-    { name: 'Beta 1 Metro Station', distance: '5 min drive' },
+    { name: 'Metro Station', distance: '5 min drive' },
     { 'name': 'Grand Venice Mall', 'distance': '10 min drive' },
     { name: 'Pari Chowk', distance: '7 min drive' },
     { name: 'Local Market & ATMs', distance: 'Walking distance' },
