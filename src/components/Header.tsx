@@ -20,25 +20,35 @@ export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setHasScrolled(currentScrollY > 20);
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
+        if (isVisible) {
+          timeoutId = setTimeout(() => {
+            setIsVisible(false);
+          }, 200);
+        }
       } else {
+        clearTimeout(timeoutId);
         setIsVisible(true);
       }
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [lastScrollY, isVisible]);
 
   const headerClasses = `
-    sticky top-0 z-50 w-full transition-all duration-300
-    ${hasScrolled ? 'border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 shadow-lg' : 'bg-transparent'}
+    sticky top-0 z-50 w-full transition-all duration-500 ease-in-out
+    ${hasScrolled ? 'border-b border-white/20 bg-white/10 backdrop-blur-2xl shadow-lg' : 'bg-transparent'}
     ${isVisible ? 'translate-y-0' : '-translate-y-full'}
   `;
 

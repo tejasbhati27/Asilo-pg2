@@ -29,7 +29,7 @@ export default function Location() {
                     <p className="text-muted-foreground">
                         Asilo Girls PG, Beta 1, Greater Noida, Uttar Pradesh
                     </p>
-                    <Button asChild className="mt-4 inline-flex items-center gap-2 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 animate-glow">
+                    <Button asChild className="mt-4 inline-flex items-center gap-2 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110">
                         <a
                             href={googleMapsUrl}
                             target="_blank"

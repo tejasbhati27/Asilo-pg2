@@ -26,19 +26,19 @@ export default function Hero() {
             Experience the perfect blend of comfort, community, and convenience. Asilo is more than a PG—it's your home away from home, designed for the modern student.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" asChild className="bg-white text-gray-900 font-bold shadow-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+            <Button size="lg" asChild className="bg-white text-gray-900 font-bold shadow-lg transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110">
               <a href="#rooms">
                 Explore Rooms
                 <MoveRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-all duration-300 transform hover:scale-105">
+            <Button size="lg" variant="outline" asChild className="text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110">
               <a href="#location">
                 <MapPin className="mr-2 h-5 w-5" />
                 View on Map
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-all duration-300 transform hover:scale-105">
+            <Button size="lg" variant="outline" asChild className="text-white border-white bg-transparent hover:bg-white/10 backdrop-blur-sm transition-transform duration-300 transform hover:-translate-y-1 hover:scale-110">
               <a href="#contact-info">
                 <Phone className="mr-2 h-5 w-5" />
                 Contact Us
