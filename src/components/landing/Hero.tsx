@@ -38,7 +38,7 @@ export default function Hero() {
                 Connect
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-white border-white hover:bg-white/20 hover:text-white">
+            <Button size="lg" variant="outline" asChild className="text-white border-white bg-transparent hover:bg-white/20">
               <a href="#location">
                 <MapPin className="mr-2 h-5 w-5" />
                 View on Map
