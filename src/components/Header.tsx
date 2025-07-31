@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -19,8 +19,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
-        <a href="#" className="font-headline text-xl font-bold text-gray-800">
-          Asilo Student Living
+        <a href="#" className="flex items-center gap-2 font-headline text-xl font-bold text-gray-800 transition-colors hover:text-primary">
+          <Home className="h-6 w-6" />
+          <span>Asilo Student Living</span>
         </a>
 
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -41,7 +42,8 @@ export default function Header() {
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <nav className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b pb-2">
-                     <a href="#" className="font-headline text-xl font-bold text-gray-800">
+                     <a href="#" className="flex items-center gap-2 font-headline text-xl font-bold text-gray-800">
+                      <Home className="h-6 w-6" />
                       Asilo Student Living
                     </a>
                     <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
