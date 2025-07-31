@@ -131,11 +131,6 @@ export default function Contact() {
                             WhatsApp
                         </a>
                     </Button>
-                    <Button asChild className="flex-1 bg-pink-500 text-white hover:bg-pink-600 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            Instagram
-                        </a>
-                    </Button>
                 </div>
              </div>
           </div>
