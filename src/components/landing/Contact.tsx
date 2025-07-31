@@ -86,18 +86,24 @@ export default function Contact() {
           <div className="space-y-6">
             <h3 className="font-headline text-2xl font-semibold">Contact Information</h3>
             <div className="space-y-4 text-lg">
-                <a href="tel:+911234567890" className="flex items-center gap-4 group">
-                    <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="text-muted-foreground group-hover:text-primary transition-colors">+91 12345 67890</span>
-                </a>
-                <a href="mailto:info@asilopg.com" className="flex items-center gap-4 group">
+                <div className="flex flex-col gap-2">
+                    <a href="tel:+918766360226" className="flex items-center gap-4 group">
+                        <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                        <span className="text-muted-foreground group-hover:text-primary transition-colors">+91 87663 60226</span>
+                    </a>
+                     <a href="tel:+919717512704" className="flex items-center gap-4 group">
+                        <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                        <span className="text-muted-foreground group-hover:text-primary transition-colors">+91 97175 12704</span>
+                    </a>
+                </div>
+                <a href="mailto:asilohostel@gmail.com" className="flex items-center gap-4 group">
                     <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="text-muted-foreground group-hover:text-primary transition-colors">info@asilopg.com</span>
+                    <span className="text-muted-foreground group-hover:text-primary transition-colors">asilohostel@gmail.com</span>
                 </a>
                 <div className="flex items-start gap-4">
                     <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                     <p className="text-muted-foreground">
-                        Asilo Girls PG, Knowledge Park III, Greater Noida, UP 201308
+                        Asilo Girls PG, BETA - 1, Greater Noida
                     </p>
                 </div>
             </div>
