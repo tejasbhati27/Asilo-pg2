@@ -1,0 +1,117 @@
+"use client";
+
+import { useFormState, useFormStatus } from "react-dom";
+import { useEffect, useRef } from "react";
+import { handleContactInquiry } from "@/app/actions";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { Loader2, Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" className="w-full" disabled={pending}>
+      {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+      Send Inquiry
+    </Button>
+  );
+}
+
+export default function Contact() {
+  const [state, formAction] = useFormState(handleContactInquiry, { type: 'initial' });
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
+
+   useEffect(() => {
+    if (state.type === 'success') {
+      toast({
+        title: "Message Sent!",
+        description: state.message,
+      });
+      formRef.current?.reset();
+    } else if (state.type === 'error' && state.message && !state.errors) {
+       toast({
+        variant: "destructive",
+        title: "Oh no! Something went wrong.",
+        description: state.message,
+      });
+    }
+  }, [state, toast]);
+  
+  return (
+    <section id="contact" className="py-16 sm:py-24 bg-background">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <h2 className="font-headline text-3xl font-bold text-center sm:text-4xl">
+          Get in Touch
+        </h2>
+        <p className="mt-4 text-center text-lg text-muted-foreground max-w-2xl mx-auto">
+          Have questions or want to schedule a visit? We'd love to hear from you.
+        </p>
+        <div className="mt-12 grid md:grid-cols-2 gap-12">
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle className="font-headline text-2xl">Send us a Message</CardTitle>
+              <CardDescription>Fill out the form and we'll get back to you shortly.</CardDescription>
+            </CardHeader>
+            <form ref={formRef} action={formAction}>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" name="name" placeholder="Your full name" required/>
+                  {state.type === 'error' && state.errors?.name && <p className="text-sm text-destructive">{state.errors.name[0]}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" name="email" type="email" placeholder="your.email@example.com" required/>
+                  {state.type === 'error' && state.errors?.email && <p className="text-sm text-destructive">{state.errors.email[0]}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input id="phone" name="phone" type="tel" placeholder="Your phone number" required/>
+                   {state.type === 'error' && state.errors?.phone && <p className="text-sm text-destructive">{state.errors.phone[0]}</p>}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea id="message" name="message" placeholder="Your message or inquiry" required/>
+                  {state.type === 'error' && state.errors?.message && <p className="text-sm text-destructive">{state.errors.message[0]}</p>}
+                </div>
+                <SubmitButton />
+              </CardContent>
+            </form>
+          </Card>
+          <div className="space-y-6">
+            <h3 className="font-headline text-2xl font-semibold">Contact Information</h3>
+            <div className="space-y-4 text-lg">
+                <a href="tel:+911234567890" className="flex items-center gap-4 group">
+                    <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-muted-foreground group-hover:text-primary transition-colors">+91 12345 67890</span>
+                </a>
+                <a href="mailto:info@asilopg.com" className="flex items-center gap-4 group">
+                    <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="text-muted-foreground group-hover:text-primary transition-colors">info@asilopg.com</span>
+                </a>
+                <div className="flex items-start gap-4">
+                    <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">
+                        Asilo Girls PG, Knowledge Park III, Greater Noida, UP 201308
+                    </p>
+                </div>
+            </div>
+             <div className="flex space-x-4">
+                <Button variant="outline" size="icon" asChild>
+                    <a href="#" aria-label="Facebook"><Facebook className="h-6 w-6" /></a>
+                </Button>
+                <Button variant="outline" size="icon" asChild>
+                    <a href="#" aria-label="Instagram"><Instagram className="h-6 w-6" /></a>
+                </Button>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

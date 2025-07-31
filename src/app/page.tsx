@@ -1,3 +1,31 @@
+import Header from '@/components/Header';
+import Hero from '@/components/landing/Hero';
+import Amenities from '@/components/landing/Amenities';
+import About from '@/components/landing/About';
+import Rooms from '@/components/landing/Rooms';
+import Gallery from '@/components/landing/Gallery';
+import Location from '@/components/landing/Location';
+import Testimonials from '@/components/landing/Testimonials';
+import Recommendation from '@/components/landing/Recommendation';
+import Contact from '@/components/landing/Contact';
+import Footer from '@/components/Footer';
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <Amenities />
+        <About />
+        <Rooms />
+        <Gallery />
+        <Testimonials />
+        <Location />
+        <Recommendation />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
 }
