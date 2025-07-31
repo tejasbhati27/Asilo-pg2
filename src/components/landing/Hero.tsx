@@ -11,6 +11,7 @@ export default function Hero() {
         fill
         className="object-cover"
         priority
+        unoptimized
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20" />
       <div className="relative z-10 flex flex-col items-center text-center px-4">

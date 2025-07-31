@@ -9,7 +9,7 @@ const roomTypes = [
     description: "Experience luxury and privacy in our premium single rooms. These rooms are more spacious and offer upgraded amenities.",
     furnishings: ["King Size Bed & Mattress", "Large Wardrobe", "Ergonomic Study Table & Chair", "Silent Air Conditioning", "Mini Fridge"],
     image: {
-      src: "https://images.unsplash.com/photo-1594454476363-9db9378413a4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/premium-single.jpg",
       hint: "luxury student room"
     },
     availability: "available",
@@ -19,7 +19,7 @@ const roomTypes = [
     description: "Enjoy complete privacy and personal space in our cozy single rooms. Perfect for students who need quiet focus.",
     furnishings: ["Bed & Mattress", "Wardrobe", "Study Table & Chair", "Air Conditioning"],
     image: {
-      src: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "/single-occupancy.jpg",
       hint: "student room private"
     },
     availability: "limited",

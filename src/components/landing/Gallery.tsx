@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 const galleryImages = [
-  { src: "https://placehold.co/600x400.png", alt: "PG Building Exterior", hint: "student housing building" },
-  { src: "https://placehold.co/600x400.png", alt: "Dining Hall", hint: "dormitory dining hall" },
-  { src: "https://placehold.co/600x400.png", alt: "Recreation Room", hint: "student common room" },
-  { src: "https://placehold.co/600x400.png", alt: "Fully furnished single room", hint: "student room single" },
-  { src: "https://placehold.co/600x400.png", alt: "Clean and hygienic kitchen", hint: "commercial kitchen" },
-  { src: "https://placehold.co/600x400.png", alt: "Spacious shared room", hint: "student room shared" },
+  { src: "/premium-single.jpeg", alt: "PG Building Exterior", hint: "student housing building" },
+  { src: "/photo_2025-07-31_19-15-41.jpeg", alt: "Dining Hall", hint: "dormitory dining hall" },
+  { src: "/photo_2025-07-31_19-15-47.jpeg", alt: "Recreation Room", hint: "student common room" },
+  { src: "/single-occupancy.jpeg", alt: "Fully furnished single room", hint: "student room single" },
+  { src: "/download.jpeg", alt: "Clean and hygienic kitchen", hint: "commercial kitchen" },
+  { src: "/double-occupancy.jpeg", alt: "Spacious shared room", hint: "student room shared" },
 ];
 
 export default function Gallery() {
@@ -29,6 +29,8 @@ export default function Gallery() {
                 height={400}
                 className="w-full h-full object-cover aspect-video"
                 data-ai-hint={image.hint}
+                {...(image.src.startsWith("/") ? { unoptimized: true } : {})}
+              />
               />
             </div>
           ))}
