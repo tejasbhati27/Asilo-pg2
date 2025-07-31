@@ -3,7 +3,7 @@ import { MapPin } from 'lucide-react';
 const nearbyPlaces = [
     { name: 'Beta Plaza', distance: 'In front of' },
     { name: 'Beta 1 Metro Station', distance: '5 min drive' },
-    { name: 'Grand Venice Mall', distance: '10 min drive' },
+    { 'name': 'Grand Venice Mall', 'distance': '10 min drive' },
     { name: 'Pari Chowk', distance: '7 min drive' },
     { name: 'Local Market & ATMs', distance: 'Walking distance' },
     { name: 'Kailash Hospital', distance: '10 min drive' },
@@ -33,7 +33,7 @@ export default function Location() {
                   <ul className="mt-2 space-y-1 list-disc list-inside text-muted-foreground">
                       {nearbyPlaces.map(place => (
                           <li key={place.name}>
-                              {place.name === 'Beta Plaza' ? <span>{place.distance} Beta Plaza</span> : <span><strong>{place.name}:</strong> {place.distance}</span>}
+                              {place.name === 'Beta Plaza' ? <span><strong>In front of Beta Plaza</strong></span> : <span><strong>{place.name}:</strong> {place.distance}</span>}
                           </li>
                       ))}
                   </ul>
