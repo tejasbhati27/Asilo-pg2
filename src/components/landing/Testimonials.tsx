@@ -5,7 +5,7 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Living at Asilo felt like being part of a family. The warden is super helpful and the facilities are top-notch. Highly recommend!",
+    quote: "Living at Asilo felt like being part of a family. The environment is so supportive and the facilities are top-notch. Highly recommend!",
     name: "Priya Sharma",
     college: "Galgotias University",
     rating: 5,
