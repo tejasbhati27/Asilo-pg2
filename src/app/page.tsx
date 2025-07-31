@@ -5,7 +5,6 @@ import Rooms from '@/components/landing/Rooms';
 import Gallery from '@/components/landing/Gallery';
 import Location from '@/components/landing/Location';
 import Testimonials from '@/components/landing/Testimonials';
-import Recommendation from '@/components/landing/Recommendation';
 import Contact from '@/components/landing/Contact';
 import Footer from '@/components/Footer';
 
@@ -20,7 +19,6 @@ export default function Home() {
         <Gallery />
         <Testimonials />
         <Location />
-        <Recommendation />
         <Contact />
       </main>
       <Footer />
