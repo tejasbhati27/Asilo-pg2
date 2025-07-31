@@ -108,7 +108,7 @@ export default function Contact() {
                 <div className="flex items-start gap-4">
                     <MapPin className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                     <p className="text-muted-foreground">
-                        Asilo Girls PG, BETA - 1, Greater Noida
+                        Asilo Girls PG, Beta 1, Greater Noida, Uttar Pradesh
                     </p>
                 </div>
             </div>

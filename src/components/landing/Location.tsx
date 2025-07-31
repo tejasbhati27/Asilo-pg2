@@ -23,7 +23,7 @@ export default function Location() {
                 <div>
                     <h3 className="font-semibold text-lg">Our Address</h3>
                     <p className="text-muted-foreground">
-                       Asilo Girls PG, BETA - 1, Greater Noida
+                       Asilo Girls PG, Beta 1, Greater Noida, Uttar Pradesh
                     </p>
                 </div>
               </div>
@@ -40,7 +40,7 @@ export default function Location() {
             </div>
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg h-96">
-            <a href="https://maps.app.goo.gl/J7brRaJaaQrB2Yrt9" target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+            <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.898656649233!2d77.50323667429881!3d28.54287999092824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce8edb6ff3f7d%3A0x777470a486c7585f!2sAsilo%20PG!5e0!3m2!1sen!2sin!4v1722445831969!5m2!1sen!2sin" target="_blank" rel="noopener noreferrer" className="block w-full h-full">
                 <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.898656649233!2d77.50323667429881!3d28.54287999092824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce8edb6ff3f7d%3A0x777470a486c7585f!2sAsilo%20PG!5e0!3m2!1sen!2sin!4v1722445831969!5m2!1sen!2sin"
                 width="100%"
