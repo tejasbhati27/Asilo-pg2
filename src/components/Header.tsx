@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Building2, Phone, BedDouble, Star, ImageIcon, Map, MessageCircle } from 'lucide-react';
+import { Menu, X, Building2, Phone, BedDouble, Star, ImageIcon, Map, MessageCircle, StarHalf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
@@ -19,6 +19,8 @@ export default function Header() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+
+  const googleMapsReviewUrl = "https://www.google.com/maps/place/Asilo+Girls+PG/@28.4784904,77.5058117,19z/data=!4m17!1m8!3m7!1s0x390cea6513624ebd:0xc472b07f2822a6df!2sBeta+I,+Greater+Noida,+Uttar+Pradesh!3b1!8m2!3d28.4797984!4d77.5060438!16s%2Fg%2F1tdd_qy6!3m7!1s0x390ceb5e6bcd9b89:0x9caf31c42bc35918!8m2!3d28.4781292!4d77.5061669!9m1!1b1!16s%2Fg%2F11xrfzs4zf?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D";
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
@@ -118,6 +120,12 @@ export default function Header() {
                 </ul>
               </nav>
               <div className="mt-auto border-t pt-6">
+                <Button asChild size="lg" className="w-full bg-yellow-400 text-black hover:bg-yellow-500 rounded-lg shadow-lg mb-4">
+                  <a href={googleMapsReviewUrl} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                    <StarHalf className="mr-2 h-5 w-5" />
+                    Rate your ASILO
+                  </a>
+                </Button>
                 <Button size="lg" asChild className="w-full bg-accent text-white hover:bg-accent/90 rounded-lg shadow-lg">
                   <a href="#contact-info" onClick={() => setIsOpen(false)}>
                     <Phone className="mr-2 h-5 w-5" />

@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -31,6 +32,8 @@ const renderStars = (rating: number) => {
 }
 
 export default function Testimonials() {
+  const googleMapsReviewUrl = "https://www.google.com/maps/place/Asilo+Girls+PG/@28.4784904,77.5058117,19z/data=!4m17!1m8!3m7!1s0x390cea6513624ebd:0xc472b07f2822a6df!2sBeta+I,+Greater+Noida,+Uttar+Pradesh!3b1!8m2!3d28.4797984!4d77.5060438!16s%2Fg%2F1tdd_qy6!3m7!1s0x390ceb5e6bcd9b89:0x9caf31c42bc35918!8m2!3d28.4781292!4d77.5061669!9m1!1b1!16s%2Fg%2F11xrfzs4zf?hl=en&entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D";
+  
   return (
     <section id="testimonials" className="py-16 sm:py-24 bg-secondary">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -79,6 +82,13 @@ export default function Testimonials() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+        </div>
+        <div className="mt-12 text-center">
+          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+            <a href={googleMapsReviewUrl} target="_blank" rel="noopener noreferrer">
+              Rate your ASILO experience
+            </a>
+          </Button>
         </div>
       </div>
     </section>

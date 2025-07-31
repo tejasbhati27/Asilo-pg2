@@ -1,6 +1,6 @@
 import Hero from '@/components/landing/Hero';
 import Amenities from '@/components/landing/Amenities';
-import Rooms from '@/components/landing/Rooms';
+import Occupancy from '@/components/landing/Occupancy';
 import Gallery from '@/components/landing/Gallery';
 import Location from '@/components/landing/Location';
 import Testimonials from '@/components/landing/Testimonials';
@@ -11,7 +11,7 @@ export default function Home() {
     <div className="bg-white overflow-x-hidden">
       <main className="flex-1">
         <Hero />
-        <Rooms />
+        <Occupancy />
         <Amenities />
         <Gallery />
         <Testimonials />
